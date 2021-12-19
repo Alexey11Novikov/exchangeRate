@@ -26,4 +26,8 @@ public class ReadConfig {
     public String getPort() {
         return readFile().path("port").asText();
     }
+
+    public String getTime() {
+        return readFile().path("timeUnload").asText();
+    }
 }
