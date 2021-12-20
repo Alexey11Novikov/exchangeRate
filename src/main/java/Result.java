@@ -1,14 +1,13 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Result {
-    public  void writeResult() {
-     //  InputStreamReader isReader =
-      //          new InputStreamReader(this.getClass().getResourceAsStream("result.txt"));
-      //  BufferedWriter bw = new BufferedWriter(fw)) {
-       //     bw.write(content);
-       //     bw.newLine();
-      //  }
+    public  void writeResult(String str) throws FileNotFoundException {
+
+        PrintWriter writer =
+                new PrintWriter(
+                        new File(this.getClass().getResource("result.txt").getPath()));
+        writer.write(str);
+        writer.flush();
+        writer.close();
     }
 }
