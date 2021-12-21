@@ -1,6 +1,7 @@
 package connection;
 
-import config.ReadConfig;
+import config.ReadConfigImpl;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -11,8 +12,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ConnectApi {
-    private String connect() {
-        ReadConfig config = new ReadConfig();
+    public String connect() {
+        ReadConfigImpl config = new ReadConfigImpl();
         StringBuilder result = new StringBuilder();
         try {
             URL url = new URL(config.getApiUrl());
