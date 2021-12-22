@@ -3,6 +3,7 @@ import connection.ConnectApi;
 import org.json.simple.JSONObject;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 public class ParseJson {
@@ -12,7 +13,7 @@ public class ParseJson {
         return (JSONObject)connectApi.parseJson().get("Valute");
     }
 
-    public Map<String, Float> getKey() {
+    public Map<String, Float> getKey() throws IOException {
         JSONObject jsonObject = getValuteJson();
         Map<String, Float> test = new HashMap<>();
         ResultOut res = new ResultOut();
@@ -28,7 +29,7 @@ public class ParseJson {
         return test;
     }
 
-    public void findBestValute() throws FileNotFoundException {
+    public void findBestValute() throws IOException {
         Map<String, Float> response = getKey();
         ResultOut res = new ResultOut();
        for(int i=0; i<5; i++) {
@@ -39,7 +40,7 @@ public class ParseJson {
        }
     }
 
-    public void writeCharCode(String str) {
+    public void writeCharCode(String str) throws IOException {
         ResultOut res = new ResultOut();
         try {
             res.writeResult(str);

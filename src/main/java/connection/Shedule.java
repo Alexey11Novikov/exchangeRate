@@ -9,8 +9,10 @@ public class Shedule {
 
     public void sheduleSend(Calendar date) {
       if (date.getTime().before(new Date())) {
+
         date.add(Calendar.DATE, 1);
       }
+        System.out.println(date.getTime());
       timer.scheduleAtFixedRate(new StartShedule(), date.getTime(), 1000 * 60 * 60 * 24);
     }
 }
