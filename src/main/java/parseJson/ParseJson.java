@@ -15,11 +15,13 @@ public class ParseJson {
     public Map<String, Float> getKey() {
         JSONObject jsonObject = getValuteJson();
         Map<String, Float> test = new HashMap<>();
+        ResultOut res = new ResultOut();
         for (Object keyStr : jsonObject.keySet()) {
             Object keyvalue = jsonObject.get(keyStr);
             if (keyvalue instanceof JSONObject) {
                Float value = Float.parseFloat(((JSONObject) keyvalue).get("Value").toString());
                Float prev = Float.parseFloat(((JSONObject) keyvalue).get("Previous").toString());
+                res.printCharCode(((JSONObject) keyvalue).get("CharCode").toString(), ((JSONObject) keyvalue).get("Name").toString());
                test.put(keyStr.toString(), value-prev);
             }
         }
@@ -35,6 +37,16 @@ public class ParseJson {
            //write top 5 valute
            res.writeResult(key);
        }
+    }
+
+    public void writeCharCode(String str) {
+        ResultOut res = new ResultOut();
+        try {
+            res.writeResult(str);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     private String minMax(Map<String, Float> map) {

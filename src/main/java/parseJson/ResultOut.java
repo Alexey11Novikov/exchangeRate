@@ -10,4 +10,14 @@ public class ResultOut {
         writer.flush();
         writer.close();
     }
+
+    public void printCharCode(String code, String nameValute){
+        String result = "Code: "+ code + " Наименование: " + nameValute;
+        try {
+            writeResult(result);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 }
