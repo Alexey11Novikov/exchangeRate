@@ -1,10 +1,13 @@
-import java.io.FileNotFoundException;
 
-import parseJson.ParseJson;
 
 public class MainFunction {
-    public static void main(String[] args) throws FileNotFoundException {
-        ParseJson parseJson =new ParseJson();
-        parseJson.findBestValute();
+
+    public static void main(String[] args) {
+
+        Daemon daemon = new Daemon();
+
+        daemon.setDaemon(true);
+
+        daemon.start();
     }
 }

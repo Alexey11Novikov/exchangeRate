@@ -9,7 +9,6 @@ import java.io.FileNotFoundException;
 
 public class StartShedule extends TimerTask {
 
-
   public void run() {
     ParseJson parseJson =new ParseJson();
     try {
