@@ -2,7 +2,6 @@ package parseJson;
 import connection.ConnectApi;
 import org.json.simple.JSONObject;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
@@ -22,7 +21,8 @@ public class ParseJson {
             if (keyvalue instanceof JSONObject) {
                Float value = Float.parseFloat(((JSONObject) keyvalue).get("Value").toString());
                Float prev = Float.parseFloat(((JSONObject) keyvalue).get("Previous").toString());
-                res.printCharCode(((JSONObject) keyvalue).get("CharCode").toString(), ((JSONObject) keyvalue).get("Name").toString());
+                res.printCharCode(((JSONObject) keyvalue).get("CharCode").toString(),
+                        ((JSONObject) keyvalue).get("Name").toString());
                test.put(keyStr.toString(), value-prev);
             }
         }
@@ -36,18 +36,8 @@ public class ParseJson {
            String key = minMax(response);
            response.remove(key);
            //write top 5 valute
-           res.writeResult("Top 5 valute: " + (i + 1) + ": "+key + "\n");
+           res.printTopValute(key, i);
        }
-    }
-
-    public void writeCharCode(String str) throws IOException {
-        ResultOut res = new ResultOut();
-        try {
-            res.writeResult(str);
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
     }
 
     private String minMax(Map<String, Float> map) {

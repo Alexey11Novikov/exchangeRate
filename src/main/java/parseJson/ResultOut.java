@@ -1,9 +1,6 @@
 package parseJson;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
+
 
 public class ResultOut {
     
@@ -23,12 +20,39 @@ public class ResultOut {
         }
     }
 
-    public void printCharCode(String code, String nameValute) throws IOException {
+    public void printCharCode(String code, String nameValute)  {
         String result = "Code: "+ code + " Наименование: " + nameValute + "\n";
         try {
             writeResult(result);
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void printTopValute(String valute, int i) {
+        String result ="Top 5 valute: " + (i + 1) + ": "+ valute + "\n";
+        try {
+            writeResult(result);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void printDate(String date) {
+        String result ="date: " + date + "\n";
+        try {
+            writeResult(result);
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

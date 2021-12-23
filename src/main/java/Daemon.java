@@ -10,14 +10,14 @@ public class Daemon extends Thread {
   Calendar date = Calendar.getInstance();
   Shedule timer = new Shedule();
 
-  ConfigModule config = new ConfigModule();
+  String config = ConfigModule.instance().getTimeConfig();
   public void run() {
     try {
       if (isDaemon()) {
         System.out.println("старт потока-демона");
 
         try {
-          date.setTime(new SimpleDateFormat("HH:mm:ss").parse(config.getTimeConfig()));
+          date.setTime(new SimpleDateFormat("HH:mm:ss").parse(config));
         } catch (ParseException e) {
           e.printStackTrace();
         }
@@ -43,19 +43,6 @@ public class Daemon extends Thread {
 
       System.err.print("Error" + e);
 
-    } finally {
-
-      if (!isDaemon())
-
-        System.out.println(
-
-            "завершение обычного потока");
-
-      else
-
-        System.out.println(
-
-            "завершение потока-демона");
     }
   }
 }
