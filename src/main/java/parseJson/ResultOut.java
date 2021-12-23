@@ -24,7 +24,7 @@ public class ResultOut {
     }
 
     public void printCharCode(String code, String nameValute) throws IOException {
-        String result = "Code: "+ code + " Наименование: " + nameValute;
+        String result = "Code: "+ code + " Наименование: " + nameValute + "\n";
         try {
             writeResult(result);
         } catch (FileNotFoundException e) {

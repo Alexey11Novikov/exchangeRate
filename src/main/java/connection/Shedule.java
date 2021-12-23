@@ -12,7 +12,6 @@ public class Shedule {
 
         date.add(Calendar.DATE, 1);
       }
-        System.out.println(date.getTime());
       timer.scheduleAtFixedRate(new StartShedule(), date.getTime(), 1000 * 60 * 60 * 24);
     }
 }

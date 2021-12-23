@@ -16,9 +16,8 @@ public class Daemon extends Thread {
       if (isDaemon()) {
         System.out.println("старт потока-демона");
 
-        System.out.println("123");
         try {
-          date.setTime(new SimpleDateFormat("HH:mm:ss").parse("22:27:20"));
+          date.setTime(new SimpleDateFormat("HH:mm:ss").parse(config.getTimeConfig()));
         } catch (ParseException e) {
           e.printStackTrace();
         }
@@ -32,7 +31,7 @@ public class Daemon extends Thread {
 
         timer.sheduleSend(configTime);
 
-        sleep(100000); // заменить параметр на 1
+        sleep(7500);
 
       } else {
 

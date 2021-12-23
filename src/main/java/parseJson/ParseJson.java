@@ -36,7 +36,7 @@ public class ParseJson {
            String key = minMax(response);
            response.remove(key);
            //write top 5 valute
-           res.writeResult(key);
+           res.writeResult("Top 5 valute: " + (i + 1) + ": "+key + "\n");
        }
     }
 
